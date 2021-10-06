@@ -5,6 +5,7 @@ public class HelloWorld {
 		System.out.println("Hello World!");
 		System.out.println("New line is being added");
 		System.out.println("This is new feature addition.");
+		System.out.println("This is the first self-added line in new-feature.");
 	}
 
 }
