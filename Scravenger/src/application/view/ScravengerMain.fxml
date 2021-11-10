@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+   <children>
+      <ImageView fitHeight="293.0" fitWidth="711.0" layoutX="45.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Group%20Project/Title%20Art/Scravenger.jpg" />
+         </image>
+      </ImageView>
+      <Text fontSmoothingType="LCD" layoutX="300.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter URL Address:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="urlField" layoutX="136.0" layoutY="300.0" prefHeight="31.0" prefWidth="529.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnScrape" layoutX="306.0" layoutY="383.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="189.0" text="Scrape!" />
+   </children>
+</AnchorPane>
