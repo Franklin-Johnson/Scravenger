@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="1000.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <Pane layoutY="20.0" prefHeight="93.0" prefWidth="1400.0">
+         <children>
+            <TextField fx:id="urlTextField" layoutX="7.0" layoutY="58.0" prefHeight="31.0" prefWidth="1400.0" promptText="url" text="~~~~" />
+            <ToolBar layoutY="11.0" prefHeight="45.0" prefWidth="1074.0">
+               <items>
+                  <Button fx:id="urlFetch" mnemonicParsing="false" onAction="#handleFetchPage" prefHeight="31.0" prefWidth="97.0" text="Fetch URL" />
+               </items></ToolBar>
+        </children>
+      </Pane>
+      <MenuBar layoutY="-4.0" prefHeight="32.0" prefWidth="1400.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="View">
+              <items>
+                  <CheckMenuItem fx:id="menuWebView" mnemonicParsing="false" onAction="#toggleWebView" text="Web View" />
+                  <CheckMenuItem fx:id="menuHTMLView" mnemonicParsing="false" onAction="#toggleHTMLView" selected="true" text="HTML View" />
+                  <MenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="htmlblockButton" mnemonicParsing="false" onAction="#handleBlockHTMLButton" text="html block display" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tools">
+              <items>
+                  <MenuItem fx:id="bfsurlMapMenuItem" mnemonicParsing="false" onAction="#handlebfsUrlMap" text=" bfs URL Map" />
+                  <MenuItem fx:id="urlMapMenuItem" mnemonicParsing="false" onAction="#handleUrlMap" text="Recursive URL Map" />
+                <MenuItem fx:id="parseButton" mnemonicParsing="false" onAction="#handleParseHtml" text="HTML Parse" />
+                  <MenuItem fx:id="regexMenuItem" mnemonicParsing="false" onAction="#handleRegexAction" text="Regex" />
+                  <MenuItem fx:id="emailExtractButton" mnemonicParsing="false" onAction="#handleEmailExtractButton" text="email extract" />
+                  <MenuItem fx:id="scriptExtractButton" mnemonicParsing="false" onAction="#handleScriptExtractButton" text="script extract" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane fx:id="MainSplitView" dividerPositions="0.3512160228898426, 0.6909871244635193" layoutY="113.0" prefHeight="885.0" prefWidth="1700.0">
+        <items>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <TextArea fx:id="docTextArea" prefHeight="712.0" prefWidth="429.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <WebView fx:id="webPanel" prefHeight="712.0" prefWidth="610.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <BorderPane fx:id="webViewBorderPane" prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <TextArea fx:id="parseTextField" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
