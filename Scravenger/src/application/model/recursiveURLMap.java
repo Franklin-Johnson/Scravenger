@@ -1,63 +1,56 @@
-package web;
+package application.model;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import javafx.scene.control.TextArea;
-
-import java.util.Iterator;
 
 
 public class recursiveURLMap{
-
+	
     public Set<String> uniqueURL = new HashSet<String>();
     public String parsedString;
-
-    public String map(String url) {
+    int i=0;
+    
+    public void map(String url, int limiter) {
+    	if (i > limiter) return;
     	String domain = url.replaceFirst("^(https://www\\.|http://www\\.|http://|https://|www\\.)","");
- 
+    	
         recursiveURLMap r = new recursiveURLMap();
         r.getLinks(url, domain);
-        return parsedString;
+        i++;
     }
 
-    public String getLinks(String url, String domain) {
+    public void getLinks(String url, String domain) {
     	try {
             Document doc = Jsoup.connect(url).get();
             Elements links = doc.select("a");
 
             if (links.isEmpty()) {
-            	System.out.println("done");
-               return parsedString;
+               return;
             }
 
             links.stream().map((link) -> link.attr("abs:href")).forEachOrdered((this_url) -> {
                 boolean add = uniqueURL.add(this_url);
-                System.out.println(this_url + " " + domain);
+                System.out.println(this_url);
                 if (add && this_url.contains(domain)) {
-                    parsedString+= this_url + "\n";
-                    System.out.println(this_url);
+                   
                     getLinks(this_url, domain);
                 }
             });
 
         } catch (IOException ex) {
-
-        }
-		return "null";
-
+        	
+        }	
+    	
+   
+    }
+    
+    public Set<String> getUniqueSet(){
+		return uniqueURL;
+    	
     }
 }
 

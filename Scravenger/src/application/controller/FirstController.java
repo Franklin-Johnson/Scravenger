@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class MainController {
+public class FirstController {
 
 
 
@@ -32,9 +32,8 @@ public class MainController {
 	@FXML
     void getWebAddress(ActionEvent event) {
 		BeginScrape.webAddress = urlTextField.getText();
-		//System.out.println(BeginScrape.webAddress);
 		try {
-			URL url = new File("src/application/view/ScrapeView.fxml").toURI().toURL();
+			URL url = new File("src/application/view/MainFXML.fxml").toURI().toURL();
         	mainPane = FXMLLoader.load(url);
         	Scene scene = new Scene(mainPane, 1024, 768);
         	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();

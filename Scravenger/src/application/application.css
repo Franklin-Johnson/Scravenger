@@ -1,7 +1,14 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/*
+ * @author Aaron Sterzenback (edg204) for CS3443.003 as part of Group02-project Scravenger
+ * This is the JavaFX CSS file with settings for the color of the main background.
+ */
+/* JavaFX CSS */
+/*
 #mainPane{
-	-fx-background-color:WHITE;
-	-fx-background-radius:15px;
-	-fx-border-color:BLACK;
-	-fx-border-width:3px;
+	-fx-background-color:rgba(0.0, 0.0, 0.0, 1.0);
+	-fx-border-color:RED;
+	-fx-border-width:1px;
 }
+*/
+ 
+

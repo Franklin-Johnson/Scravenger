@@ -1,19 +1,16 @@
-package web;
+package application.model;
 
 import org.jsoup.nodes.DataNode;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-
 import java.io.IOException;
-
-import org.jsoup.Jsoup;
 
 public class extractScript {
 
-	public String extract(String url) throws IOException {
+	public String extract(Document doc) throws IOException {
 		
 	String newData = "";
-	Document doc = Jsoup.connect(url).get();
+
     
 	for (Element scripts : doc.getElementsByTag("script")) {
         newData+= "\n";

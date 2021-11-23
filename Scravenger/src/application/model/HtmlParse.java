@@ -1,4 +1,4 @@
-package htmlParser;
+package application.model;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

@@ -1,11 +1,9 @@
-package web;
+package application.model;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,7 +14,7 @@ public class breadthFirstImplement {
 	LinkedHashSet<String> marked = new LinkedHashSet<String>();
 	String parsedString = "";
 	
-	public String implement(String url, int maxLinks){
+	public LinkedHashSet<String> implement(String url, int maxLinks){
 		
 
 		String s = url;
@@ -25,7 +23,7 @@ public class breadthFirstImplement {
 		marked.add(s);
 		Document doc;
 
-		OUTER: while (!queue.isEmpty()) {
+		OL: while (!queue.isEmpty()) {
 
 			String r = queue.remove();
 			System.out.println(r);
@@ -37,7 +35,7 @@ public class breadthFirstImplement {
 					for (Element link : questions) {
 						if ((link.attr("abs:href").contains(domain) && (link.attr("abs:href").startsWith("http")))) {
 							if (marked.size() == maxLinks) {
-								continue OUTER;
+								continue OL;
 							}
 							else {
 								queue.add(link.attr("abs:href"));
@@ -59,6 +57,6 @@ public class breadthFirstImplement {
 			parsedString += counter + "/"	+ listSize + ".." + fileName +"\n";
 			counter++;
 		}
-		return parsedString;
+		return marked;
 	}
 }

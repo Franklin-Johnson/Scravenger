@@ -1,4 +1,4 @@
-package web;
+package application.model;
 
 import java.io.BufferedWriter;
 import java.io.File;

@@ -15,7 +15,7 @@ public class ScravengerMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			URL url = new File("src/application/view/ScravengerMain.fxml").toURI().toURL();
+			URL url = new File("src/application/view/ScravengerFirst.fxml").toURI().toURL();
 			AnchorPane root = (AnchorPane)FXMLLoader.load(url);
 			Scene scene = new Scene(root,1024, 768);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
