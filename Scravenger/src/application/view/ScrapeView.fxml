@@ -20,16 +20,16 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ScrapeController">
    <children>
-      <Pane layoutY="20.0" prefHeight="93.0" prefWidth="1400.0">
+      <Pane layoutY="20.0" prefHeight="93.0" prefWidth="1024.0">
          <children>
-            <TextField fx:id="urlTextField" layoutX="7.0" layoutY="58.0" prefHeight="31.0" prefWidth="1400.0" promptText="url" text="~~~~" />
-            <ToolBar layoutY="11.0" prefHeight="45.0" prefWidth="1074.0">
+            <TextField fx:id="urlTextField" layoutY="58.0" prefHeight="31.0" prefWidth="1024.0" promptText="url" text="~~~~" />
+            <ToolBar layoutY="11.0" prefHeight="45.0" prefWidth="1024.0">
                <items>
                   <Button fx:id="urlFetch" mnemonicParsing="false" onAction="#handleFetchPage" prefHeight="31.0" prefWidth="97.0" text="Fetch URL" />
                </items></ToolBar>
         </children>
       </Pane>
-      <MenuBar layoutY="-4.0" prefHeight="32.0" prefWidth="1400.0">
+      <MenuBar layoutY="-4.0" prefHeight="32.0" prefWidth="1024.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -61,7 +61,7 @@
             </Menu>
         </menus>
       </MenuBar>
-      <SplitPane fx:id="MainSplitView" dividerPositions="0.3512160228898426, 0.6909871244635193" layoutY="113.0" prefHeight="885.0" prefWidth="1700.0">
+      <SplitPane fx:id="MainSplitView" dividerPositions="0.3512160228898426, 0.6909871244635193" layoutY="113.0" prefHeight="768.0" prefWidth="1024.0">
         <items>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>

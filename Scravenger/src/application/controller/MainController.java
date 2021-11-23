@@ -36,7 +36,7 @@ public class MainController {
 		try {
 			URL url = new File("src/application/view/ScrapeView.fxml").toURI().toURL();
         	mainPane = FXMLLoader.load(url);
-        	Scene scene = new Scene(mainPane, 1280, 1024);
+        	Scene scene = new Scene(mainPane, 1024, 768);
         	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         	window.setTitle("Scravenger - Web Scraper");
         	window.setScene(scene);
