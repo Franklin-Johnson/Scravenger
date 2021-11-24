@@ -12,7 +12,7 @@ public class recursiveURLMap{
 	
     public Set<String> uniqueURL = new HashSet<String>();
     public String parsedString;
-    int i=0;
+    public int i=0;
     
     public void map(String url, int limiter) {
     	if (i > limiter) return;

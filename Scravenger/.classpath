@@ -3,7 +3,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="images"/>
-	<classpathentry kind="lib" path="C:/Users/Aaron/Documents/My Education/Courses/CS3443.003 Application Programming/JavaProjects/Webscraper/src/ApacheCommonsIO/commons-io-2.11.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Aaron/Documents/My Education/Courses/CS3443.003 Application Programming/JavaProjects/Webscraper/src/Jsoup/jsoup-1.14.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aaron/Documents/My Education/Courses/CS3443.003 Application Programming/GitRepositories/Scravenger/src/Jsoup/jsoup-1.14.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aaron/Documents/My Education/Courses/CS3443.003 Application Programming/GitRepositories/Scravenger/src/ApacheCommonsIO/commons-io-2.11.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

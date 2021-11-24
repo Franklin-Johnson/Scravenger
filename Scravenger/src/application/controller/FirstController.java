@@ -17,9 +17,6 @@ import javafx.stage.Stage;
 
 public class FirstController {
 
-
-
-
 	@FXML
 	private Button btnScrape;
 

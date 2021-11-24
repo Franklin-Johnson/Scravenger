@@ -10,13 +10,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class breadthFirstImplement {
-	Queue<String> queue = new LinkedList<String>();
-	LinkedHashSet<String> marked = new LinkedHashSet<String>();
-	String parsedString = "";
+	
+	public Queue<String> queue = new LinkedList<String>();
+	public LinkedHashSet<String> marked = new LinkedHashSet<String>();
+	public String parsedString = "";
 	
 	public LinkedHashSet<String> implement(String url, int maxLinks){
-		
-
 		String s = url;
 		String domain = url.replaceFirst("^(https://www\\.|http://www\\.|http://|https://|www\\.)","");
 		queue.add(s);

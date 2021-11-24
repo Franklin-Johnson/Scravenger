@@ -5,7 +5,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class HtmlParse {
-	String parsedString = "";
+	public String parsedString = "";
 
 	public String parseHTML(Document doc) {
 		 Elements links = doc.select("a[href]");
