@@ -17,7 +17,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-
+<!-- @author  CS3443.003-Group2 Scravenger Web Scraper application -->
+<!-- This is the FXML code for the MainFXML.fxml file in the application.view package constructed in the Scene-Builder program used to construct the JavaFX GUI-->
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller">
    <children>
       <BorderPane prefHeight="768.0" prefWidth="1024.0">
@@ -32,10 +33,10 @@
                                  <left>
                                     <Pane prefHeight="665.0" prefWidth="200.0" style="-fx-border-color: A9A9A9;" BorderPane.alignment="CENTER">
                                        <children>
-                                          <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ActionExtract" text="extract" />
-                                          <Button layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#ActionExtractSettings" text="extraction settings" />
+                                          <Button fx:id="btnExtract" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ActionExtract" text="extract" />
+                                          <Button fx:id="btnSettings" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#ActionExtractSettings" text="extraction settings" />
                                           <TextField fx:id="outputFileDir" layoutX="14.0" layoutY="152.0" promptText="Ex: C:\Users\John\Documents\Scravenger" />
-                                          <Button layoutX="12.0" layoutY="187.0" mnemonicParsing="false" onAction="#ActionOutputFileSelector" text="File Browser" />
+                                          <Button fx:id="btnFileBrowser" layoutX="12.0" layoutY="187.0" mnemonicParsing="false" onAction="#ActionOutputFileSelector" text="File Browser" />
                                           <Separator layoutY="114.0" prefWidth="200.0" />
                                           <Label layoutX="20.0" layoutY="126.0" text="output directory" />
                                        </children></Pane>

@@ -2,8 +2,20 @@ package application.model;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
+/**
+ * @author  CS3443.003-Group2 Scravenger Web Scraper application
+ *
+ * portScrape is a Java class in the application.model package and includes the extract method.
+ */
 public class portScrape {
+	
+	    /**
+	     * extract method accepts a String url and converts contained information in to a String
+	     * for output
+	     * @param url - String url to be sourced
+	     * @return - String 
+	     * @throws MalformedURLException - may throw an exception
+	     */
 	    public String extract(String url) throws MalformedURLException {
 	    	String data= "";
 	    	URL aURL = new URL(url);

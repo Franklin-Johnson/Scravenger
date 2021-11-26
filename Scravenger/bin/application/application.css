@@ -1,14 +1,12 @@
 /*
- * @author Aaron Sterzenback (edg204) for CS3443.003 as part of Group02-project Scravenger
- * This is the JavaFX CSS file with settings for the color of the main background.
+ * @author CS3443.003-Group2 Scravenger Web Scraper application
+ * This is the JavaFX CSS file contains visual settings for JavaFX nodes.
  */
-/* JavaFX CSS */
-/*
-#mainPane{
-	-fx-background-color:rgba(0.0, 0.0, 0.0, 1.0);
-	-fx-border-color:RED;
-	-fx-border-width:1px;
-}
-*/
- 
+
+ #btnScrape{
+ 	-fx-background-radius:180px;
+	-fx-border-color:DODGERBLUE;
+	-fx-border-width:3px;
+	-fx-border-radius:180px;
+ }
 
