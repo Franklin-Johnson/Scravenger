@@ -1,0 +1,12 @@
+/*
+ * @author CS3443.003-Group2 Scravenger Web Scraper application
+ * This is the JavaFX CSS file contains visual settings for JavaFX nodes.
+ */
+
+ #btnScrape{
+ 	-fx-background-radius:180px;
+	-fx-border-color:DODGERBLUE;
+	-fx-border-width:3px;
+	-fx-border-radius:180px;
+ }
+
