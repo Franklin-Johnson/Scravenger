@@ -6,8 +6,10 @@
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+
 <!-- @author  CS3443.003-Group2 Scravenger Web Scraper application -->
 <!-- This is the FXML code for the ScravengerFirst.fxml file in the application.view package constructed in the Scene-Builder program used to construct the JavaFX GUI-->
+
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FirstController">
    <children>
       <ImageView fitHeight="293.0" fitWidth="711.0" layoutX="156.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
@@ -15,7 +17,7 @@
             <Image url="@../../../images/Scravenger.png" />
          </image>
       </ImageView>
-      <Text layoutX="361.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Web Address" textAlignment="CENTER">
+      <Text layoutX="223.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input a Web Address or Press 'Enter'" textAlignment="CENTER">
          <font>
             <Font size="36.0" />
          </font>

@@ -74,7 +74,7 @@
                                           <CheckBox fx:id="checkRegex" layoutX="224.0" layoutY="192.0" mnemonicParsing="false" text="regex" />
                                           <CheckBox fx:id="checkCustomExtractor" layoutX="224.0" layoutY="229.0" mnemonicParsing="false" text="custom extractor" />
                                           <TextField fx:id="textFieldCustomExtractor" layoutX="438.0" layoutY="225.0" />
-                                          <TextField fx:id="textFieldUrlList" layoutX="89.0" layoutY="20.0" prefHeight="48.0" prefWidth="700.0" promptText="https://utsa.edu" />
+                                          <TextField fx:id="textFieldUrlList" layoutX="89.0" layoutY="20.0" prefHeight="48.0" prefWidth="700.0" promptText="https://www.utsa.edu" />
                                        </children>
                                     </Pane>
                                  </center>

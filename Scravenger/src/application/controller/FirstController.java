@@ -33,34 +33,56 @@ public class FirstController {
 	@FXML
 	private TextField urlTextField;
 	public static String webAddress;
+
+	/**
+	 * initialize method is called to initialize a controller after its root element has been completely processed and call
+	 * the required methods to automatically populate the user fields with the appropriate information.
+	 */
+	public void initialize() {
+		urlTextField.setText(null);
+	}
 	/**
 	 * Event Listener on Button[#btnScrape].onAction saves user input web address and opens the 
 	 * MainFXML.fxml view for further user interaction or display a warning to the user.
 	 * @param event - button click
 	 */
 	@FXML
-    void getWebAddress(ActionEvent event) {
+	void getWebAddress(ActionEvent event) {
 		Alert alert = new Alert(AlertType.NONE);
-		String address = urlTextField.getText();
-		if (address.contains("http://") || address.contains("https://")) {
-			webAddress = urlTextField.getText();
+		if (urlTextField.getText() == null || urlTextField.getText() == "") {
 			try {
 				URL url = new File("src/application/view/MainFXML.fxml").toURI().toURL();
-	        	mainPane = FXMLLoader.load(url);
-	        	Scene scene = new Scene(mainPane, 1024, 768);
-	        	Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-	        	window.setTitle("Scravenger - Web Scraper");
-	        	window.setScene(scene);
-	        	window.show();
-	        } catch (IOException e) {
-	        	e.printStackTrace();
-	        }
-		} else {
-			alert.setAlertType(AlertType.ERROR);
-			alert.setContentText("Please enter a complete website address.\nExample: "
-					+ "https://www.websitename.com");
-			alert.showAndWait();
+				mainPane = FXMLLoader.load(url);
+				Scene scene = new Scene(mainPane, 1024, 768);
+				Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				window.setTitle("Scravenger - Web Scraper");
+				window.setScene(scene);
+				window.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else {
+			String address = urlTextField.getText();
+			if (address.contains("http://") || address.contains("https://")) {
+				webAddress = urlTextField.getText();
+				try {
+					URL url = new File("src/application/view/MainFXML.fxml").toURI().toURL();
+					mainPane = FXMLLoader.load(url);
+					Scene scene = new Scene(mainPane, 1024, 768);
+					Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+					window.setTitle("Scravenger - Web Scraper");
+					window.setScene(scene);
+					window.show();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} else {
+				urlTextField.setText(null);
+				alert.setAlertType(AlertType.ERROR);
+				alert.setContentText("Please enter a complete website address.\nExample: "
+						+ "https://www.websitename.com");
+				alert.showAndWait();
+			}
 		}
-		        
-    }
+	}
 }
