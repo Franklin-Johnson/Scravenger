@@ -3,7 +3,6 @@ package application.controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import application.model.BeginScrape;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +32,7 @@ public class FirstController {
 	private AnchorPane mainPane;
 	@FXML
 	private TextField urlTextField;
-
+	public static String webAddress;
 	/**
 	 * Event Listener on Button[#btnScrape].onAction saves user input web address and opens the 
 	 * MainFXML.fxml view for further user interaction or display a warning to the user.
@@ -44,7 +43,7 @@ public class FirstController {
 		Alert alert = new Alert(AlertType.NONE);
 		String address = urlTextField.getText();
 		if (address.contains("http://") || address.contains("https://")) {
-			BeginScrape.webAddress = urlTextField.getText();
+			webAddress = urlTextField.getText();
 			try {
 				URL url = new File("src/application/view/MainFXML.fxml").toURI().toURL();
 	        	mainPane = FXMLLoader.load(url);

@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller">
+<!-- @author  CS3443.003-Group2 Scravenger Web Scraper application -->
+<!-- This is the FXML code for the MainFXML.fxml file in the application.view package -->
+
+<AnchorPane fx:id="extractPane" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller">
    <children>
       <BorderPane prefHeight="768.0" prefWidth="1024.0">
          <center>
@@ -28,10 +42,10 @@
                                  <left>
                                     <Pane prefHeight="665.0" prefWidth="200.0" style="-fx-border-color: A9A9A9;" BorderPane.alignment="CENTER">
                                        <children>
-                                          <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ActionExtract" text="extract" />
-                                          <Button layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#ActionExtractSettings" text="extraction settings" />
-                                          <TextField fx:id="outputFileDir" Text="C:\Users\carlh\Documents\WEBSCRAPETEST" layoutX="14.0" layoutY="152.0" />
-                                          <Button layoutX="12.0" layoutY="187.0" mnemonicParsing="false" onAction="#ActionOutputFileSelector" text="File Browser" />
+                                          <Button fx:id="btnExtract" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ActionExtract" text="extract" />
+                                          <Button fx:id="btnSettings" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#ActionExtractSettings" text="extraction settings" />
+                                          <TextField fx:id="outputFileDir" layoutX="14.0" layoutY="152.0" promptText="C:\Users\carlh\Documents\WEBSCRAPETEST" />
+                                          <Button fx:id="btnFileBrowser" layoutX="12.0" layoutY="187.0" mnemonicParsing="false" onAction="#ActionOutputFileSelector" text="File Browser" />
                                           <Separator layoutY="114.0" prefWidth="200.0" />
                                           <Label layoutX="20.0" layoutY="126.0" text="output directory" />
                                        </children></Pane>
@@ -39,10 +53,10 @@
                                  <center>
                                     <Pane prefHeight="665.0" prefWidth="824.0" BorderPane.alignment="CENTER">
                                        <children>
-                                          <TextField fx:id="TextFieldRegex" layoutX="438.0" layoutY="188.0" />
-                                          <CheckBox fx:id="CheckHtml" layoutX="286.0" layoutY="104.0" mnemonicParsing="false" text="html" />
-                                          <CheckBox fx:id="CheckScripts" layoutX="397.0" layoutY="104.0" mnemonicParsing="false" text="scripts" />
-                                          <CheckBox fx:id="CheckCss" layoutX="513.0" layoutY="104.0" mnemonicParsing="false" text="css" />
+                                          <TextField fx:id="textFieldRegex" layoutX="438.0" layoutY="188.0" />
+                                          <CheckBox fx:id="checkHtml" layoutX="286.0" layoutY="104.0" mnemonicParsing="false" text="html" />
+                                          <CheckBox fx:id="checkScripts" layoutX="397.0" layoutY="104.0" mnemonicParsing="false" text="scripts" />
+                                          <CheckBox fx:id="checkCss" layoutX="513.0" layoutY="104.0" mnemonicParsing="false" text="css" />
                                           <Label layoutX="16.0" layoutY="23.0" text="url list" />
                                           <Label layoutX="14.0" layoutY="104.0" text="extraction selectors" />
                                           <Separator layoutY="77.0" prefHeight="0.0" prefWidth="1004.0" />
@@ -50,17 +64,17 @@
                                           <Label layoutX="14.0" layoutY="315.0" text="domain" />
                                           <Separator layoutX="-2.0" layoutY="181.0" prefHeight="0.0" prefWidth="1004.0" />
                                           <Separator layoutX="-2.0" layoutY="265.0" prefHeight="0.0" prefWidth="1004.0" />
-                                          <CheckBox fx:id="CheckBfs" layoutX="286.0" layoutY="315.0" mnemonicParsing="false" text="breadth first" />
-                                          <CheckBox fx:id="CheckRecursive" layoutX="458.0" layoutY="315.0" mnemonicParsing="false" text="recursive" />
-                                          <CheckBox fx:id="CheckMedia" layoutX="286.0" layoutY="140.0" mnemonicParsing="false" text="media" />
-                                          <CheckBox fx:id="CheckEmail" layoutX="397.0" layoutY="140.0" mnemonicParsing="false" text="email" />
-                                          <CheckBox fx:id="CheckLinks" layoutX="514.0" layoutY="140.0" mnemonicParsing="false" text="links" />
-                                          <CheckBox fx:id="CheckTel" layoutX="607.0" layoutY="104.0" mnemonicParsing="false" text="tel #" />
-                                          <CheckBox fx:id="CheckPorts" layoutX="608.0" layoutY="140.0" mnemonicParsing="false" text="ports" />
-                                          <CheckBox fx:id="CheckRegex" layoutX="224.0" layoutY="192.0" mnemonicParsing="false" text="regex" />
-                                          <CheckBox fx:id="CheckCustomExtractor" layoutX="224.0" layoutY="229.0" mnemonicParsing="false" text="custom extractor" />
-                                          <TextField fx:id="TextFieldCustomExtractor" layoutX="438.0" layoutY="225.0" />
-                                          <TextField fx:id="TextFieldUrlList" layoutX="89.0" layoutY="20.0" text="https://utsa.edu" />
+                                          <CheckBox fx:id="checkBfs" layoutX="286.0" layoutY="315.0" mnemonicParsing="false" text="breadth first" />
+                                          <CheckBox fx:id="checkRecursive" layoutX="458.0" layoutY="315.0" mnemonicParsing="false" text="recursive" />
+                                          <CheckBox fx:id="checkMedia" layoutX="286.0" layoutY="140.0" mnemonicParsing="false" text="media" />
+                                          <CheckBox fx:id="checkEmail" layoutX="397.0" layoutY="140.0" mnemonicParsing="false" text="email" />
+                                          <CheckBox fx:id="checkLinks" layoutX="514.0" layoutY="140.0" mnemonicParsing="false" text="links" />
+                                          <CheckBox fx:id="checkTel" layoutX="607.0" layoutY="104.0" mnemonicParsing="false" text="tel #" />
+                                          <CheckBox fx:id="checkPorts" layoutX="608.0" layoutY="140.0" mnemonicParsing="false" text="ports" />
+                                          <CheckBox fx:id="checkRegex" layoutX="224.0" layoutY="192.0" mnemonicParsing="false" text="regex" />
+                                          <CheckBox fx:id="checkCustomExtractor" layoutX="224.0" layoutY="229.0" mnemonicParsing="false" text="custom extractor" />
+                                          <TextField fx:id="textFieldCustomExtractor" layoutX="438.0" layoutY="225.0" />
+                                          <TextField fx:id="textFieldUrlList" layoutX="89.0" layoutY="20.0" prefHeight="48.0" prefWidth="700.0" promptText="https://utsa.edu" />
                                        </children>
                                     </Pane>
                                  </center>
@@ -70,7 +84,329 @@
                 </Tab>
                 <Tab text="Usage">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="665.0" prefWidth="1024.0">
+                           <children>
+                              <BorderPane maxWidth="1.7976931348623157E308" prefHeight="665.0" prefWidth="1024.0">
+                                 <left>
+                                    <Pane prefHeight="665.0" prefWidth="200.0" style="-fx-border-color: A9A9A9;" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <TextField fx:id="fileLocationTextField" layoutX="14.0" layoutY="26.0" promptText="C:\Users\carlh\Documents\WEBSCRAPETEST" />
+                                          <Button fx:id="btnLoadFiles" layoutX="15.0" layoutY="109.0" mnemonicParsing="false" onAction="#findButtonAction" text="LOAD FILES" />
+                                          <Separator layoutY="159.0" prefWidth="200.0" />
+                                          <GridPane fx:id="selectedGrid" layoutY="161.0" prefHeight="203.0" prefWidth="197.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Text fx:id="fileNameText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="1" />
+                                                <Text fx:id="fileTypeText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="3" />
+                                                <Text fx:id="fileSizeText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="5" />
+                                                <Text fx:id="filePathText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.rowIndex="7" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FILE NAME:">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin></Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FILE TYPE:" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin></Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FILE SIZE:" GridPane.rowIndex="4">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin></Text>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FILE PATH:" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" />
+                                                   </GridPane.margin></Text>
+                                             </children>
+                                          </GridPane>
+                                          <Button fx:id="btnFileBrowserUsage" layoutX="15.0" layoutY="64.0" mnemonicParsing="false" onAction="#ActionUsageFileSelector" text="File Browser" />
+                                          <Separator layoutX="-1.0" layoutY="363.0" prefWidth="200.0" />
+                                          <Button fx:id="btnViewText" layoutX="14.0" layoutY="376.0" mnemonicParsing="false" onAction="#textViewAction" text="view as text" />
+                                          <Button fx:id="btnBrowserView" layoutX="14.0" layoutY="410.0" mnemonicParsing="false" onAction="#browserViewAction" text="browser view" />
+                                       </children>
+                                       <BorderPane.margin>
+                                          <Insets />
+                                       </BorderPane.margin></Pane>
+                                 </left>
+                                 <center>
+                                    <Pane prefHeight="711.0" prefWidth="824.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <TabPane prefHeight="715.0" prefWidth="824.0" tabClosingPolicy="UNAVAILABLE">
+                                            <tabs>
+                                              <Tab text="ALL">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                              <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="fileGrid" onMouseClicked="#clickGrid">
+                                                                          <columnConstraints>
+                                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                          </columnConstraints>
+                                                                          <rowConstraints>
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                          </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                              </content>
+                                                            </ScrollPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                </content>
+                                              </Tab>
+                                              <Tab text="HTML">
+                                                <content>
+                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="htmlGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                                </content>
+                                              </Tab>
+                                              <Tab text="SCRIPTS">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="scriptGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              <Tab text="CSS">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="cssGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              <Tab text="EMAIL">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="emailGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              <Tab text="TEL">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="telGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              <Tab text="LINKS">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="linkGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              <Tab text="REGEX">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="regexGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              <Tab text="MEDIA">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="mediaGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              <Tab text="PORTS">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="portGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              <Tab text="EXTRA">
+                                              	<content>
+ 	                                            	<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ScrollPane prefHeight="687.0" prefWidth="824.0">
+                                                               <content>
+                                                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                                                     <children>
+                                                                        <GridPane fx:id="extraGrid" onMouseClicked="#clickGrid">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                         </children></AnchorPane>
+                                              	</content>
+                                              </Tab>
+                                              
+                                            </tabs>
+                                          </TabPane>
+                                       </children>
+                                    </Pane>
+                                 </center>
+                              </BorderPane>
+                           </children></AnchorPane>
                   </content>
                 </Tab>
                                 <Tab text="Export">
@@ -103,5 +439,10 @@
             </MenuBar>
          </top>
       </BorderPane>
+      <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="428.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Scravenger.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
