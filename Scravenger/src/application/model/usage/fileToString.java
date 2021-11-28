@@ -1,10 +1,8 @@
 package application.model.usage;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 /**
  * @author  CS3443.003-Group2 Scravenger Web Scraper application

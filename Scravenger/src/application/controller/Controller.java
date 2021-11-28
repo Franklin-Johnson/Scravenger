@@ -33,28 +33,29 @@ import application.model.extractors.ExtractTel;
 import application.model.iterators.BreadthFirstIterator;
 import application.model.iterators.RecursiveIterator;
 import application.model.usage.fileGrid;
-import application.model.usage.fileToString;
 import application.model.usage.gridSelector;
 import application.model.usage.popWindow;
 import application.model.usage.webDisplay;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 /**
@@ -147,19 +148,7 @@ public class Controller implements Initializable {
     	String strDate = dateFormat.format(date);  
     	
     	testDir += "\\EXTRACT" + strDate.replaceAll("[^a-zA-Z0-9]","_");  
-	
-    
-    /*@FXML
-    void ActionExtract(ActionEvent event) {
-    	String testDir = outputFileDir.getText();
-    	
-    	Date date = Calendar.getInstance().getTime();  
-    	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
-    	String strDate = dateFormat.format(date);  
-    	
-    	testDir += "\\EXTRACT" + strDate.replaceAll("[^a-zA-Z0-9]","_");  
-    	*/
-		
+			
     /**
      * 
      * start of breadth first link iteration
@@ -809,4 +798,52 @@ public class Controller implements Initializable {
 			}
 		}
 	}
+	
+	/**
+	 * about method is a menu item action event triggered when the about item is selected under the help menu item
+	 * @param event - ActionEvent
+	 */
+	@FXML
+    void about(ActionEvent event) {
+		Label version = new Label("Version: 2021-11 (0.00.01)\nBuild id: 20212011-0001\n(c) Copyright Some Poor College Student Contributors.\n"
+				+ "All rights reserved. Web Scravenger is a trademark of Some Poor College Student Contributors.\n"
+				+ "The Web Scravenger logo cannot be altered without Some Poor College Student Contributors' permission.\n"
+				+ "Oracle and Java are trademarks or registered trademarks of Oracle and/or its affiliates.\n"
+				+ "Other names may be trademarks of their respective owners.\n" + "");
+		version.setFont(Font.font("Consolas", FontWeight.BOLD, FontPosture.REGULAR, 14));
+ 
+		 Image image = new Image("skull2.png", 200, 289, false, false);
+		 
+		 //image.getScaledInstance(132, 190, Image.SCALE_FAST);
+				 //("https://e7.pngegg.com/pngimages/101/541/png-clipart-skull-skull.png");
+ 
+		ImageView image2 = new ImageView();
+		image2.setImage(image);
+ 
+		AnchorPane secondaryLayout = new AnchorPane();
+		version.setLayoutX(5);
+		version.setLayoutY(210);
+		image2.setLayoutX(290);
+		image2.setLayoutY(5);
+		secondaryLayout.getChildren().add(image2);
+		secondaryLayout.getChildren().add(version);
+		
+		Scene secondScene = new Scene(secondaryLayout, 800, 400);
+ 
+		// New window (Stage)
+		Stage newWindow = new Stage();
+		newWindow.setTitle("About Scravenger");
+		newWindow.setScene(secondScene);
+ 
+		newWindow.show();
+    }
+	/**
+	 * close method is an action event triggered when the close item is selected under the file menu item
+	 * @param event - ActionEvent
+	 */
+	@FXML
+    void close(ActionEvent event) {
+		Platform.exit(); // terminates application
+    }
+	
 }

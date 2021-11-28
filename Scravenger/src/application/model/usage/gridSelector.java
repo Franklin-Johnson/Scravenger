@@ -3,7 +3,6 @@ package application.model.usage;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 /**
  * @author  CS3443.003-Group2 Scravenger Web Scraper application
  *
