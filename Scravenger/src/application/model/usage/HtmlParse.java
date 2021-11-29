@@ -58,7 +58,7 @@ public class HtmlParse {
 	/**
 	 * trim method accepts a String s and an int width
 	 * @param s - String passed
-	 * @param width - to compare to the String
+	 * @param len - to compare to the String
 	 * @return - String
 	 */
 	private static String trim(String s, int len) {
